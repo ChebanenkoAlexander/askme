@@ -10,22 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_123058) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_082159) do
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "Name"
+    t.string "name"
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_hash"
     t.string "password_salt"
+    t.string "avatar_url"
   end
 
+  add_foreign_key "questions", "users"
 end
