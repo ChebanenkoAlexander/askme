@@ -4,6 +4,7 @@ class User < ApplicationRecord
    DIGEST=OpenSSL::Digest::SHA256.new
    validates :email, :username, presence: true
    validates :email, :username, uniqueness: true
+   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
    has_many :questions 
    attr_accessor :password
    validates_presence_of :password, on: :create
