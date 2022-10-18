@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
     def index
+        @users = [
+User.new(
+    id:1,
+    name: 'Roman',
+    username: 'Romashka'
+),
+User.new(
+    id:2, 
+    name: 'Sacha',
+    username: 'chaba'
+)
+        ]
     end
     def new
     end

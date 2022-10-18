@@ -5,15 +5,21 @@
     <title>Хорошие вопросы</title>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <% javascript_include_tag 'application' %>
   </head>
   <body>
   <div class="header">
+  <div class="container">
      <div class="header-logo">
      <h1 class="header-title"><%=link_to "Хорошие вопросы", root_path %></h1>
      </div>
-  </div> 
+  </div>
+  </div>
   <div class="content">
+  <div class="container">
     <%= yield %>
+    </div>
     </div>
   </body>
 </html>
