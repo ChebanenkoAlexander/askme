@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :load_user, except: [:index, :create, :new]
     def index
      @users=User.all
     end
@@ -15,24 +16,24 @@ else
 end
     end
     def edit
-        @user = User.find params[:id]
    
     end
     def update
-        @user = User.find params[:id]
 
         if @user.update(user_params)
-            redirect_to users_path(@user), notice: 'Данные обновлены'
+            redirect_to user_path(@user), notice: 'Данные обновлены'
         else
             render 'edit'
         end
     end
     def show
-      @user = User.find params[:id]
       @questions = @user.questions.order(created_at: :desc)
       @new_question = @user.questions.build 
     end
     private
+    def load_user
+        @user ||= User.find params[:id]
+    end
     def user_params
         params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :avatar_url)
     end
