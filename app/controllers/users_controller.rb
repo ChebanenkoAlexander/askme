@@ -39,7 +39,7 @@ end
         reject_user unless @user == current_user
     end
     def load_user
-        @user ||= User.find params[:id]
+        @user || User.find params[:id]
     end
     def user_params
         params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :avatar_url)
