@@ -31,11 +31,12 @@ module Askme
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
-    #config.time_zone = 'Moscov'
-    #config.i18n.default_locale = :en
-    #config.i18n.locale = :ru
+    config.time_zone = 'Moscow'
+
+    config.i18n.default_locale = :en
+    config.i18n.locale = :ru
     
-    #config.i18n.fallbacks = [:en]
+    config.i18n.fallbacks = [:en]
     
   end
 end
